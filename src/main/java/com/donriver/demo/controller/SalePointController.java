@@ -25,13 +25,13 @@ public class SalePointController {
     @PutMapping(value = "/")
     @ResponseBody
     public SalePoint updateSalePoint(@RequestBody SalePoint sp) {
-        return salePointService.update(sp);
+        return salePointService.createOrUpdate(sp);
     }
 
     @PostMapping(value = "/")
     @ResponseBody
     public SalePoint createSalePoint(@RequestBody SalePoint sp) {
-        return salePointService.create(sp);
+        return salePointService.createOrUpdate(sp);
     }
 
     @DeleteMapping(value = "/{id}")

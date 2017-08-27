@@ -8,7 +8,6 @@ public interface ProductService {
 
     Product findOne(Integer id);
     List<Product> findAll();
-    Product update(Product product);
-    Product create(Product product);
+    Product createOrUpdate(Product product);
     void remove(Integer id);
 }

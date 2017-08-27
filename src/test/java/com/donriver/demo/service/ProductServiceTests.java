@@ -10,8 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Optional;
-
 import static java.util.Optional.empty;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -36,18 +34,8 @@ public class ProductServiceTests {
     }
 
     @Test
-    public void testUpdate() {
-        Product p = new Product();
-        p.setId(1);
-        when(productRepository.findById(anyInt())).thenReturn(Optional.of(p));
-        productService.update(p);
-        verify(productRepository).findById(anyInt());
-        verify(productRepository).saveAndFlush(any(Product.class));
-    }
-
-    @Test
-    public void testCreate() {
-        productService.create(new Product());
+    public void testCreateOrUpdate() {
+        productService.createOrUpdate(new Product());
         verify(productRepository).saveAndFlush(any(Product.class));
     }
 

@@ -10,8 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Optional;
-
 import static java.util.Optional.empty;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -36,18 +34,8 @@ public class SalePointServiceTests {
     }
 
     @Test
-    public void testUpdate() {
-        SalePoint sp = new SalePoint();
-        sp.setId(1);
-        when(salePointRepository.findById(anyInt())).thenReturn(Optional.of(sp));
-        salePointService.update(sp);
-        verify(salePointRepository).findById(anyInt());
-        verify(salePointRepository).saveAndFlush(any(SalePoint.class));
-    }
-
-    @Test
     public void testCreate() {
-        salePointService.create(new SalePoint());
+        salePointService.createOrUpdate(new SalePoint());
         verify(salePointRepository).saveAndFlush(any(SalePoint.class));
     }
 

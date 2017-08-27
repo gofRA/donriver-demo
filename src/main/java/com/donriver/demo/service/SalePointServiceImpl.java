@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import static java.util.Objects.isNull;
-
 @Service
 public class SalePointServiceImpl implements SalePointService{
 
@@ -31,17 +29,7 @@ public class SalePointServiceImpl implements SalePointService{
     }
 
     @Override
-    public SalePoint update(SalePoint sp) {
-        SalePoint old = findOne(sp.getId());
-        old.setName(isNull(sp.getName()) ? old.getName() : sp.getName());
-        old.setAddress(isNull(sp.getAddress()) ? old.getAddress() : sp.getAddress());
-        old.setRetailChain(isNull(sp.getRetailChain()) ? old.getRetailChain() : sp.getRetailChain());
-        old.setConsultantCount(isNull(sp.getConsultantCount()) ? old.getConsultantCount() : sp.getConsultantCount());
-        return repository.saveAndFlush(old);
-    }
-
-    @Override
-    public SalePoint create(SalePoint salePoint) {
+    public SalePoint createOrUpdate(SalePoint salePoint) {
         return repository.saveAndFlush(salePoint);
     }
 

@@ -25,13 +25,13 @@ public class ProductController {
     @PutMapping(value = "/")
     @ResponseBody
     public Product updateProduct(@RequestBody Product p) {
-        return productService.update(p);
+        return productService.createOrUpdate(p);
     }
 
     @PostMapping(value = "/")
     @ResponseBody
     public Product createProduct(@RequestBody Product p) {
-        return productService.create(p);
+        return productService.createOrUpdate(p);
     }
 
     @DeleteMapping(value = "/{id}")

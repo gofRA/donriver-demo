@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import static java.util.Objects.isNull;
-
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -31,19 +29,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product update(Product p) {
-        Product old = findOne(p.getId());
-        old.setName(isNull(p.getName()) ? old.getName() : p.getName());
-        old.setCategory(isNull(p.getCategory()) ? old.getCategory() : p.getCategory());
-        old.setGuarantee(isNull(p.getGuarantee()) ? old.getGuarantee() : p.getGuarantee());
-        old.setSalesCount(isNull(p.getSalesCount()) ? old.getSalesCount() : p.getSalesCount());
-        old.setTotalCount(isNull(p.getTotalCount()) ? old.getTotalCount() : p.getTotalCount());
-        old.setManufacturer(isNull(p.getManufacturer()) ? old.getManufacturer() : p.getManufacturer());
-        return repository.saveAndFlush(old);
-    }
-
-    @Override
-    public Product create(Product product) {
+    public Product createOrUpdate(Product product) {
         return repository.saveAndFlush(product);
     }
 
