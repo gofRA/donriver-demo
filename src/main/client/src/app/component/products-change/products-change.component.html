@@ -1,0 +1,33 @@
+<p-dialog [(visible)]="display" [closable]="false" [modal]="true" width="420">
+  <p-header>
+    {{operation}} row
+  </p-header>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Name</span>
+    <input pInputText class="col-lg-7" [(ngModel)]="inputRow.name"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Category</span>
+    <input pInputText class="col-lg-7"  [(ngModel)]="inputRow.category"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Manufacturer</span>
+    <input pInputText class="col-lg-7"  [(ngModel)]="inputRow.manufacturer"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Guarantee</span>
+    <input pInputText type="number" class="col-lg-7"  [(ngModel)]="inputRow.guarantee"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Sales count</span>
+    <input pInputText type="number" class="col-lg-7"  [(ngModel)]="inputRow.salesCount"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Total count</span>
+    <input pInputText type="number" class="col-lg-7"  [(ngModel)]="inputRow.totalCount"/>
+  </div>
+  <p-footer>
+    <button pButton (click)="save()" class="btn-primary" label="Ok"></button>
+    <button pButton (click)="cancel()" class="ui-button-secondary" label="Cancel"></button>
+  </p-footer>
+</p-dialog>

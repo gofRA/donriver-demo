@@ -1,0 +1,12 @@
+<p-panel>
+  <p-header>
+    <div class="ui-helper-clearfix blue-panel top-buffer-5">
+      <span class="ui-panel-title">
+        <strong>{{title}}</strong>
+      </span>
+
+      <button pButton class="pull-right" label="Excel" icon="fa fa-file-excel-o" (click)="exportReport()"></button>
+    </div>
+  </p-header>
+  <tabs (tableToExport)="saveTable($event)"></tabs>
+</p-panel>

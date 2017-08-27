@@ -1,0 +1,25 @@
+<p-dialog [(visible)]="display" [closable]="false" [modal]="true" width="420">
+  <p-header>
+    {{operation}} row
+  </p-header>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Name</span>
+    <input pInputText class="col-lg-7" [(ngModel)]="inputRow.name"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Address</span>
+    <input pInputText class="col-lg-7"  [(ngModel)]="inputRow.address"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Retail chain</span>
+    <input pInputText class="col-lg-7"  [(ngModel)]="inputRow.retailChain"/>
+  </div>
+  <div class="ui-inputgroup col-lg-12">
+    <span class="ui-inputgroup-addon col-lg-5">Consultant count</span>
+    <input pInputText type="number" class="col-lg-7"  [(ngModel)]="inputRow.consultantCount"/>
+  </div>
+  <p-footer>
+    <button pButton (click)="save()" class="btn-primary" label="Ok"></button>
+    <button pButton (click)="cancel()" class="ui-button-secondary" label="Cancel"></button>
+  </p-footer>
+</p-dialog>

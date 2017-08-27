@@ -1,0 +1,7 @@
+<p-splitButton label="Menu" [model]="items"></p-splitButton>
+<p-dialog header="Confirmation dialog" [(visible)]="display" width="400">
+  {{content}}
+  <p-footer>
+    <button type="button" pButton icon="fa-close" (click)="display=false" label="Ok"></button>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,8 @@
+<p-dataTable #salePointsTable [value]="data" [rowStyleClass]="getStyle" selectionMode="single"
+             [paginator]="true" [rows]="10" [contextMenu]="cm" [(selection)]="selectedRow">
+  <p-column *ngFor="let col of columns" [field]="col.field" [header]="col.header"></p-column>
+</p-dataTable>
+<button pButton class="top-buffer-5" label="Add row" icon="fa fa-edit" (click)="addRow()"></button>
+<sale-points-change [inputRow]="modifyingRow" [display]="displayChange"
+                    [operation]="operation" (outputRow)="saveEntity($event)"></sale-points-change>
+<p-contextMenu #cm [model]="menuItems" appendTo="body"></p-contextMenu>

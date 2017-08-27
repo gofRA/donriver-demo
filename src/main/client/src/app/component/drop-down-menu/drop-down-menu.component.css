@@ -1,0 +1,7 @@
+:host >>> div.ui-widget {
+  width: 100%;
+}
+
+:host >>> button.ui-button-text-only {
+  width: 70%;
+}
